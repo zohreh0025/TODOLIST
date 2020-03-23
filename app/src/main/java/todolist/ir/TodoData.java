@@ -1,11 +1,9 @@
 package todolist.ir;
 
 public class TodoData {
-    private String titel;
     private String edittxt;
 
-    public TodoData(String titel, String edittxt) {
-        this.titel = titel;
+    public TodoData( String edittxt) {
         this.edittxt = edittxt;
     }
 
@@ -13,7 +11,4 @@ public class TodoData {
         return edittxt;
     }
 
-    public String getTitel() {
-        return titel;
-    }
 }
