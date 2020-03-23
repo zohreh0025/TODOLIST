@@ -24,6 +24,11 @@ public class TodoListFragmant extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView recyclerView=view.findViewById(R.id.todorecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new TodoAdaptor());
+        TodoData[]todo=new TodoData[]{
+                new TodoData("salaaaaaaam","mn zohreh hastam"),
+                new TodoData("hiii","mn zahra hastam")
+        };
+        TodoAdaptor adaptor=new TodoAdaptor(todo);
+        recyclerView.setAdapter(adaptor);
     }
 }
