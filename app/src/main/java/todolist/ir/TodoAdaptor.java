@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class TodoAdaptor extends RecyclerView.Adapter<TodoViewHolder> {
     private TodoData[] todo;
-    private View.OnClickListener onClickListener;
+    private TodoOnClick onClickListener;
 
-    public TodoAdaptor(TodoData[] todo,View.OnClickListener onClickListener)
+    public TodoAdaptor(TodoData[] todo,TodoOnClick onClickListener)
     {
         this.todo = todo;
         this.onClickListener=onClickListener;

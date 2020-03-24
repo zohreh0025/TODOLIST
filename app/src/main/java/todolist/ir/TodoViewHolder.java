@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class TodoViewHolder extends RecyclerView.ViewHolder {
     private EditText edit;
-    private View.OnClickListener onClickListener;
+    private TodoOnClick onClickListener;
    // private Button btn;
-    public TodoViewHolder(@NonNull View itemView, View.OnClickListener onClickListener) {
+    public TodoViewHolder(@NonNull View itemView, TodoOnClick onClickListener) {
         super(itemView);
         edit=itemView.findViewById(R.id.edit);
         this.onClickListener=onClickListener;
@@ -21,7 +21,12 @@ public class TodoViewHolder extends RecyclerView.ViewHolder {
     public void bind(final TodoData data){
 
         edit.setText(data.getEdittxt());
-        itemView.setOnClickListener(onClickListener);
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickListener.onClick(data);
+            }
+        });
 
 
 
