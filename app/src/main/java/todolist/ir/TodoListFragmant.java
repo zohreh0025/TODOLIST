@@ -32,7 +32,10 @@ public class TodoListFragmant extends Fragment {
         TodoAdaptor adaptor=new TodoAdaptor(todo, new TodoOnClick() {
             @Override
             public void onClick(TodoData data) {
-                System.out.println(data.getEdittxt());
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragmant_todo,new TodoDatilFragmant())
+                        .commit();
             }
         });
                 recyclerView.setAdapter(adaptor);
