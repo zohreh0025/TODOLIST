@@ -29,7 +29,12 @@ public class TodoListFragmant extends Fragment {
                 new TodoData("hiii"),
                 new TodoData("khoafz")
         };
-        TodoAdaptor adaptor=new TodoAdaptor(todo);
+        TodoAdaptor adaptor=new TodoAdaptor(todo, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         recyclerView.setAdapter(adaptor);
     }
 }

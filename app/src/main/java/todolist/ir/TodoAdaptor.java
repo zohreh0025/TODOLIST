@@ -9,9 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class TodoAdaptor extends RecyclerView.Adapter<TodoViewHolder> {
     private TodoData[] todo;
+    private View.OnClickListener onClickListener;
 
-    public TodoAdaptor(TodoData[] todo) {
+    public TodoAdaptor(TodoData[] todo,View.OnClickListener onClickListener)
+    {
         this.todo = todo;
+        this.onClickListener=onClickListener;
     }
 
     @NonNull
@@ -19,7 +22,7 @@ public class TodoAdaptor extends RecyclerView.Adapter<TodoViewHolder> {
     public TodoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemview= LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_todo,parent,false);
-        TodoViewHolder todoViewHolder=new TodoViewHolder(itemview);
+        TodoViewHolder todoViewHolder=new TodoViewHolder(itemview,onClickListener);
         return todoViewHolder;
     }
 
