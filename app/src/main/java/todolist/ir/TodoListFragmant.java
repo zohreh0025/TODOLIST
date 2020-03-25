@@ -5,6 +5,7 @@ import android.transition.Visibility;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,11 +28,13 @@ public class TodoListFragmant extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         final TextView toolbartitel=view.findViewById(R.id.toolbar_titel);
+        final EditText searchedit=view.findViewById(R.id.searchEdit);
         ImageView searchaction=view.findViewById(R.id.action_search);
         searchaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 toolbartitel.setVisibility(View.GONE);
+                searchedit.setVisibility(View.VISIBLE);
             }
         });
         RecyclerView recyclerView=view.findViewById(R.id.todorecycler);
