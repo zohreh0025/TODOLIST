@@ -1,9 +1,12 @@
 package todolist.ir;
 
 import android.os.Bundle;
+import android.transition.Visibility;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,6 +25,15 @@ public class TodoListFragmant extends Fragment {
     @Override
     public void onViewCreated( View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        final TextView toolbartitel=view.findViewById(R.id.toolbar_titel);
+        ImageView searchaction=view.findViewById(R.id.action_search);
+        searchaction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toolbartitel.setVisibility(View.GONE);
+            }
+        });
         RecyclerView recyclerView=view.findViewById(R.id.todorecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         TodoData[]todo=new TodoData[]{
