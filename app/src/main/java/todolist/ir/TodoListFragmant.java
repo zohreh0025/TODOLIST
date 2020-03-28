@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class TodoListFragmant extends Fragment {
+    private EditText searchedit;
+    private  TextView toolbartitel;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -27,8 +29,8 @@ public class TodoListFragmant extends Fragment {
     public void onViewCreated( View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        final TextView toolbartitel=view.findViewById(R.id.toolbar_titel);
-        final EditText searchedit=view.findViewById(R.id.searchEdit);
+       toolbartitel =view.findViewById(R.id.toolbar_titel);
+       searchedit= view.findViewById(R.id.searchEdit);
         ImageView searchaction=view.findViewById(R.id.action_search);
         searchaction.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,5 +56,14 @@ public class TodoListFragmant extends Fragment {
             }
         });
                 recyclerView.setAdapter(adaptor);
+    }
+    public boolean HandleBackPress(){
+        boolean HandleBackPress=false;
+        if(searchedit.getVisibility()==View.VISIBLE){
+            searchedit.setVisibility(View.GONE);
+            toolbartitel.setVisibility(View.VISIBLE);
+            HandleBackPress=true;
+        }
+        return HandleBackPress;
     }
 }
