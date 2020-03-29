@@ -1,6 +1,13 @@
 package todolist.ir;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextWatcher;
+import android.text.style.BackgroundColorSpan;
 import android.transition.Visibility;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +24,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class TodoListFragmant extends Fragment {
     private EditText searchedit;
+    private EditText textedit;
     private  TextView toolbartitel;
+    private String highlightString;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -28,7 +37,6 @@ public class TodoListFragmant extends Fragment {
     @Override
     public void onViewCreated( View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
        toolbartitel =view.findViewById(R.id.toolbar_titel);
        searchedit= view.findViewById(R.id.searchEdit);
         ImageView searchaction=view.findViewById(R.id.action_search);
@@ -41,7 +49,7 @@ public class TodoListFragmant extends Fragment {
         });
         RecyclerView recyclerView=view.findViewById(R.id.todorecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        TodoData[]todo=new TodoData[]{
+        final TodoData[]todo=new TodoData[]{
                 new TodoData("salaam"),
                 new TodoData("hiii"),
                 new TodoData("khoafz")
@@ -51,11 +59,16 @@ public class TodoListFragmant extends Fragment {
             public void onClick(TodoData data) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
+                        .addToBackStack(null)
                         .replace(R.id.fragmant_todo,new TodoDatilFragmant())
                         .commit();
             }
         });
                 recyclerView.setAdapter(adaptor);
+
+
+
+
     }
     public boolean HandleBackPress(){
         boolean HandleBackPress=false;
@@ -66,4 +79,5 @@ public class TodoListFragmant extends Fragment {
         }
         return HandleBackPress;
     }
+
 }
