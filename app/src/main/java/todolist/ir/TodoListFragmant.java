@@ -1,5 +1,6 @@
 package todolist.ir;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,11 +24,14 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.sql.SQLOutput;
+
 public class TodoListFragmant extends Fragment {
     private EditText searchedit;
     private EditText textedit;
     private  TextView toolbartitel;
     private String highlightString;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -40,6 +45,15 @@ public class TodoListFragmant extends Fragment {
        toolbartitel =view.findViewById(R.id.toolbar_titel);
        searchedit= view.findViewById(R.id.searchEdit);
         ImageView searchaction=view.findViewById(R.id.action_search);
+        ImageView add_item=view.findViewById(R.id.action_add);
+        add_item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Dialog_Messag dialog_messag=new Dialog_Messag();
+//                dialog_messag.show();
+            }
+        });
+
         searchaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,6 +61,7 @@ public class TodoListFragmant extends Fragment {
                 searchedit.setVisibility(View.VISIBLE);
             }
         });
+
         RecyclerView recyclerView=view.findViewById(R.id.todorecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         final TodoData[]todo=new TodoData[]{

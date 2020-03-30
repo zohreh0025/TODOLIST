@@ -2,20 +2,44 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <CheckBox
-        android:id="@+id/check"
-        android:layout_marginTop="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    tools:context=".MainActivity"
+    tools:ignore="NamespaceTypo">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        app:cardBackgroundColor="#60ECE1E1"
+        android:layout_marginTop="2dp"
+        card_view:cardCornerRadius="1dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:id="@+id/check"
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-<EditText
-    android:layout_toRightOf="@+id/check"
-    android:layout_marginTop="20dp"
-    android:id="@+id/edit"
-    android:maxLines="2"
-    android:ellipsize="end"
-    android:layout_width="match_parent"
-    android:layout_height="50dp"/>
+            <EditText
+                android:layout_toRightOf="@+id/check"
+                android:layout_marginTop="20dp"
+                android:id="@+id/edit"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
 
 </RelativeLayout>
