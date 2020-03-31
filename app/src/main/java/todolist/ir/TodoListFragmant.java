@@ -29,6 +29,7 @@ import java.sql.SQLOutput;
 public class TodoListFragmant extends Fragment {
     private EditText searchedit;
     private EditText textedit;
+    private ImageView action_add;
     private  TextView toolbartitel;
     private String highlightString;
 
@@ -44,13 +45,14 @@ public class TodoListFragmant extends Fragment {
         super.onViewCreated(view, savedInstanceState);
        toolbartitel =view.findViewById(R.id.toolbar_titel);
        searchedit= view.findViewById(R.id.searchEdit);
+       action_add=view.findViewById(R.id.action_add);
         ImageView searchaction=view.findViewById(R.id.action_search);
         ImageView add_item=view.findViewById(R.id.action_add);
         add_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Dialog_Messag dialog_messag=new Dialog_Messag();
-//                dialog_messag.show();
+                Dialog_Messag dialog_messag=new Dialog_Messag(getContext());
+                dialog_messag.show();
             }
         });
 
@@ -58,6 +60,7 @@ public class TodoListFragmant extends Fragment {
             @Override
             public void onClick(View view) {
                 toolbartitel.setVisibility(View.GONE);
+                action_add.setVisibility(View.GONE);
                 searchedit.setVisibility(View.VISIBLE);
             }
         });

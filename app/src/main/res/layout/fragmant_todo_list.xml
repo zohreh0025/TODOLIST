@@ -27,10 +27,22 @@
        android:id="@+id/action_search"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
+
+
+
        android:layout_alignParentRight="true"
-       android:layout_marginRight="16dp"
        android:layout_centerVertical="true"
+       android:layout_margin="16dp"
        android:src="@drawable/ic_action_search"/>
+   <ImageView
+       android:id="@+id/action_add"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginEnd="50dp"
+       android:layout_centerVertical="true"
+       android:layout_toLeftOf="@+id/action_search"
+       android:layout_alignParentRight="true"
+       android:src="@drawable/ic_action_add"/>
 
 
    <EditText
@@ -43,41 +55,13 @@
        android:textColor="#ffffff"
        android:visibility="gone"/>
 
+
   </RelativeLayout>
  </androidx.appcompat.widget.Toolbar>
 
 
 
- <androidx.appcompat.widget.Toolbar
-     android:id="@+id/toolbar2"
-     android:layout_width="match_parent"
-     android:layout_height="60dp"
-     android:background="#46C9B4">
-  <RelativeLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
-   <ImageView
-       android:id="@+id/action_add"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignParentRight="true"
-       android:layout_centerVertical="true"
-       android:src="@drawable/ic_action_send" />
-   <EditText
-       android:id="@+id/editadd"
-       android:layout_toLeftOf="@+id/action_add"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:hint="add name item..."
-       android:textColor="#ffffff"
-       />
 
-
-  </RelativeLayout>
-
-
-
- </androidx.appcompat.widget.Toolbar>
  <androidx.recyclerview.widget.RecyclerView
      android:id="@+id/todorecycler"
      android:layout_width="match_parent"

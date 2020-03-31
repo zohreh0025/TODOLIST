@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class TodoViewHolder extends RecyclerView.ViewHolder {
-    private EditText edit;
+    private TextView edit;
     private TodoOnClick onClickListener;
    // private Button btn;
     public TodoViewHolder(@NonNull View itemView, TodoOnClick onClickListener) {
