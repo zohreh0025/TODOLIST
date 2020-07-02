@@ -7,11 +7,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class TodoAdaptor extends RecyclerView.Adapter<TodoViewHolder> {
-    private TodoData[] todo;
+    private List<TodoData> todo;
     private TodoOnClick onClickListener;
 
-    public TodoAdaptor(TodoData[] todo,TodoOnClick onClickListener)
+    public TodoAdaptor(List<TodoData> todo,TodoOnClick onClickListener)
     {
         this.todo = todo;
         this.onClickListener=onClickListener;
@@ -28,13 +30,13 @@ public class TodoAdaptor extends RecyclerView.Adapter<TodoViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull TodoViewHolder holder, int position) {
-        TodoData notes= todo[position];
+        TodoData notes= todo.get(position);
          holder.bind(notes);
     }
 
 
     @Override
     public int getItemCount() {
-        return todo.length;
+        return todo.size();
     }
 }
